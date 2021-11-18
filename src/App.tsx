@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
+const App = () => {
+    return (
+        <div className="App">
+            <h1>LocalStorage</h1>
 
     </div>
   );
