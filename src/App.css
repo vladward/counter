@@ -1,13 +1,23 @@
 .App {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: gainsboro;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     bottom: 50%;
     left: 40%;
     width: 400px;
     height: 200px;
-    border: 2px solid cadetblue;
+    border: 4px solid cadetblue;
     border-radius: 20px;
     background-color: gainsboro;
 }
@@ -23,7 +33,7 @@ h1 {
     align-items: center;
     width: 350px;
     height: 50px;
-    border: 2px solid cadetblue;
+    border: 3px solid cadetblue;
     border-radius: 20px;
 }
 
@@ -31,6 +41,7 @@ h1 {
     width: 100px;
     height: 35px;
     border-radius: 20px;
+    font-size: 30px;
 }
 
 .button-container Button:nth-child(1n) {
@@ -40,7 +51,7 @@ h1 {
 .value-container {
     width: 350px;
     height: 110px;
-    border: 2px solid cadetblue;
+    border: 3px solid cadetblue;
     border-radius: 20px;
     margin: 10px;
 }
