@@ -22,8 +22,10 @@
     background-color: gainsboro;
 }
 
-h1 {
+p {
+    font-size: 24px;
     text-align: center;
+    font-weight: bold;
 }
 
 .button-container {
