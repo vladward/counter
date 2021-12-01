@@ -10,7 +10,7 @@ const App = () => {
     const [radioValue, setRadioValue] = useState('Off')
     const [changeMode, setChangeMode] = useState(false)
     const [incorrect, setIncorrect] = useState(false)
-    const [day, setDay] = useState(true)
+    const [nightMode, setNightMode] = useState(true)
 
     useEffect(() => {
         let itemMinValue = localStorage.getItem('counterMinValue')
@@ -99,13 +99,13 @@ const App = () => {
 
     const dayNightHandler = () => {
         // let value = e.currentTarget.checked
-        // style={!day ? {color: "white"} : {}}
-        setDay(!day)
+        // style={!nightMode ? {color: "white"} : {}}
+        setNightMode(!nightMode)
     }
 
     return (
         <div className="App">
-            <input type="checkbox" checked={!day} onChange={dayNightHandler}/>
+            <input type="checkbox" checked={!nightMode} onChange={dayNightHandler}/>
             <div className="radio-container">
                 <label htmlFor="" >Edit mode</label>
                 <div className="radio">
