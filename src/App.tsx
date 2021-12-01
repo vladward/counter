@@ -9,6 +9,7 @@ const App = () => {
     const [endMaxValue, setEndMaxValue] = useState(0)
     const [changeMode, setChangeMode] = useState(false)
     const [incorrect, setIncorrect] = useState(false)
+    const [day, setDay] = useState(true)
 
     useEffect(() => {
         let item = localStorage.getItem('counterValue')
@@ -92,31 +93,55 @@ const App = () => {
 
     return (
         <div className="App">
-            <div className="container">
-                <div className="value-container">
-                    <div className="value-items">
-                        <div className="value-spans">
-                            <div><span>max value</span></div>
-                            <div><span>min value</span></div>
-                        </div>
-                        <div className="value-inputs">
-                            <div><input value={endMaxValue}
-                                        style={incorrect ? {background: "red"} : {}}
-                                        onChange={maxOnChangeHandler}
-                                        type="number"/>
+            <input type="checkbox" checked={!day} onChange={dayNightHandler}/>
+            <div className="radio-container">
+                <label htmlFor="" >Edit mode</label>
+                <div className="radio">
+                    <input id="off"
+                           type="radio"
+                           name="one"
+                           value="Off"
+                           className="input-radio"
+                           checked={radioValue === "Off"}
+                           onChange={onChangeRadioHandler}/>
+                    <label htmlFor="off">Off</label>
+                    <input id="on"
+                           type="radio"
+                           name="one"
+                           value="On"
+                           checked={radioValue === "On"}
+                           onChange={onChangeRadioHandler}/>
+                    <label htmlFor="on">On</label>
+                </div>
+            </div>
+            {radioValue === "On" && (
+                <div className="container">
+                    <div className="value-container">
+                        <div className="value-items">
+                            <div className="value-spans">
+                                <div><span>max value</span></div>
+                                <div><span>min value</span></div>
                             </div>
-                            <div><input value={endMinValue}
-                                        style={incorrect ? {background: "red"} : {}}
-                                        onChange={minOnChangeHandler}
-                                        type="number"/>
+                            <div className="value-inputs">
+                                <div>
+                                    <input value={maxValue}
+                                           style={incorrect ? {background: "red"} : {}}
+                                           onChange={maxOnChangeHandler}
+                                           type="number"/>
+                                </div>
+                                <div>
+                                    <input value={minValue}
+                                           style={incorrect ? {background: "red"} : {}}
+                                           onChange={minOnChangeHandler}
+                                           type="number"/>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="button-container">
-                    <Button callback={setEditMode} disabled={!changeMode || incorrect} name={'set'}/>
-                </div>
-            </div>
+                    <div className="button-container">
+                        <Button callback={setEditMode} disabled={!changeMode || incorrect} name={'set'}/>
+                    </div>
+                </div>)}
             <div className="container">
                 <div className="value-container">
                     {incorrect
