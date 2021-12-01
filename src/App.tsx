@@ -99,13 +99,15 @@ const App = () => {
 
     const dayNightHandler = () => {
         // let value = e.currentTarget.checked
-        // style={!nightMode ? {color: "white"} : {}}
         setNightMode(!nightMode)
     }
 
     return (
-        <div className="App">
-            <input type="checkbox" checked={!nightMode} onChange={dayNightHandler}/>
+        <div className="App" style={!nightMode ? {backgroundColor: "#121212" ,color: "white"} : {}}>
+            <div className="night-container">
+                <label>Night Mode</label>
+                <input type="checkbox" checked={!nightMode} onChange={dayNightHandler}/>
+            </div>
             <div className="radio-container">
                 <label htmlFor="" >Edit mode</label>
                 <div className="radio">
@@ -127,7 +129,7 @@ const App = () => {
                 </div>
             </div>
             {radioValue === "On" && (
-                <div className="container">
+                <div className="container" style={!nightMode ? {backgroundColor: "#121212" ,color: "white"} : {}}>
                     <div className="value-container">
                         <div className="value-items">
                             <div className="value-spans">
@@ -137,13 +139,13 @@ const App = () => {
                             <div className="value-inputs">
                                 <div>
                                     <input value={maxValue}
-                                           style={incorrect ? {background: "red"} : {}}
+                                           style={incorrect ? {background: "red"} : {background: "gainsboro"}}
                                            onChange={maxOnChangeHandler}
                                            type="number"/>
                                 </div>
                                 <div>
                                     <input value={minValue}
-                                           style={incorrect ? {background: "red"} : {}}
+                                           style={incorrect ? {background: "red"} : {background: "gainsboro"}}
                                            onChange={minOnChangeHandler}
                                            type="number"/>
                                 </div>
@@ -154,15 +156,15 @@ const App = () => {
                         <Button callback={setEditMode} disabled={!changeMode || incorrect} name={'set'}/>
                     </div>
                 </div>)}
-            <div className="container">
+            <div className="container" style={!nightMode ? {backgroundColor: "#121212" ,color: "white"} : {}}>
                 <div className="value-container">
                     {incorrect
-                        ? <p style={{color: "red"}}>{incorrectValue}</p>
-                        : <p style={(initValue === maxValue && initValue !== 0) ? {
+                        ? <h1 style={{color: "red"}}>{incorrectValue}</h1>
+                        : <h1 style={(initValue === maxValue && initValue !== 0) ? {
                             color: "red",
                             fontSize: "32px",
                             fontWeight: 900
-                        } : {}}>{!changeMode ? initValue : "enter values and press 'set'"}</p>
+                        } : {}}>{!changeMode ? initValue : "enter values and press 'set'"}</h1>
                     }
                 </div>
                 <div className="button-container">
