@@ -75,6 +75,20 @@ const App = () => {
             setChangeMode(true)
         }
     }
+    let incorrectValue = incorrect ? "Incorrect value!" : ""
+
+    const onChangeRadioHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setRadioValue(e.currentTarget.value)
+        setIsChecked(!isChecked)
+        setChangeMode(false)
+        clearMinMaxStorage()
+    }
+
+    const dayNightHandler = () => {
+        // let value = e.currentTarget.checked
+        // style={!day ? {color: "white"} : {}}
+        setDay(!day)
+    }
 
     return (
         <div className="App">
