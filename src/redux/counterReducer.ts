@@ -1,6 +1,6 @@
 type InitialStateType = typeof initialState
 type ActionType = IncCounterValueActionType
-    |SetValueActionType
+    | SetValueActionType
     | SetValueFromLocalStorageActionType
     | SetMinValueActionType
     | SetMaxValueActionType
@@ -83,6 +83,7 @@ export const counterReducer = (state: InitialStateType = initialState, action: A
             return {...state, incorrect: action.incorrect}
         case SET_NIGHT_MODE:
             return {...state, nightMode: action.nightMode}
-        default: return state
+        default:
+            return state
     }
 }
