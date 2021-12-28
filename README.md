@@ -1,1 +1,1 @@
-#Counter web application with TypeScript
+Counter web application with React, TypeScript and Redux
